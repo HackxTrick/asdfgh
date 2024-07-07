@@ -1,2 +1,10 @@
-pyrogram
-pip install -r requirements.txt
+motor
+apscheduler
+psutil
+pymongo
+pyrogram==2.0.106
+requests==2.31.0
+tgcrypto==1.2.5
+asyncio==3.4.3
+python-dotenv==1.0.0
+heroku3
