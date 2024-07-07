@@ -1,0 +1,2 @@
+pyrogram
+pip install -r requirements.txt
