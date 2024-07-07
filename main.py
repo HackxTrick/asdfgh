@@ -7,7 +7,7 @@ api_hash = '9d5e9c5b8abcf8b7b930abd259de254e'
 bot_token = '6960093955:AAHyOitxsQynWsDG6h6PsTTSGIIlhQD-Uao'
 
 # IDs of users who have sudo access (replace with actual user IDs)
-sudo_users = [123456789, 987654321]
+sudo_users = [1910728581]
 
 # Dictionary to store approved users per chat
 approved_users = {}
@@ -69,14 +69,14 @@ async def send_start_image(message):
 async def delete_edited_messages(client, edited_message):
     if edited_message.from_user.id not in sudo_users and edited_message.from_user.id not in approved_users.get(edited_message.chat.id, []):
         user_mention = f"@{edited_message.from_user.username}" if edited_message.from_user.username else "this user"
-        await delete_message_and_notify(edited_message, user_mention, "you just edited a message")
+        await delete_message_and_notify(edited_message, user_mention, "you just edited a message and i delete it")
 
 # Handler to delete media messages in groups and notify the user
 @app.on_message(filters.group & (filters.photo | filters.video | filters.document))
 async def delete_media_messages(client, message):
     if message.from_user.id not in sudo_users and message.from_user.id not in approved_users.get(message.chat.id, []):
         user_mention = f"@{message.from_user.username}" if message.from_user.username else "this user"
-        await delete_message_and_notify(message, user_mention, "you sent media")
+        await delete_message_and_notify(message, user_mention, "you sent media and i delete it")
 
 # Handler to delete stickers and GIFs after a time limit in groups and notify the user
 async def delete_media_after_time_limit(client, message, media_type, time_limit, reason):
