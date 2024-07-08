@@ -1,4 +1,4 @@
 pyrogram
 TgCrypto
-pyrogram==1.4.0
+pyrogram==1.4.1
 requests==2.26.0
